@@ -1,0 +1,5 @@
+{
+  "name": "Prepaid Card Manager",
+  "description": "A stylish and functional prepaid card application that allows you to manage your balance with deposits and withdrawals, track your transaction history, and customize your card's name. Includes audio feedback for transactions.",
+  "requestFramePermissions": []
+}
