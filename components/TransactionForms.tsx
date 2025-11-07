@@ -65,6 +65,7 @@ export const WithdrawalForm: React.FC<WithdrawalFormProps> = ({ amount, onAmount
             className="w-full bg-slate-700/50 border border-slate-600 rounded-md px-3 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
             step="0.01"
             min="0.01"
+            max={balance.toFixed(2)}
           />
           <button
             type="submit"
