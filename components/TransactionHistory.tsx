@@ -10,9 +10,10 @@ const TransferIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 
-const TransactionItem: React.FC<{ transaction: Transaction, currency: 'EUR' | 'USD', exchangeRate: number }> = ({ transaction, currency, exchangeRate }) => {
-  const displayAmount = currency === 'USD' ? transaction.amount * exchangeRate : transaction.amount;
-  const locale = currency === 'EUR' ? 'es-ES' : 'en-US';
+const TransactionItem: React.FC<{ transaction: Transaction }> = ({ transaction }) => {
+  const displayAmount = transaction.amount;
+  const locale = 'en-US';
+  const currency = 'USD';
 
   const renderDetails = () => {
     switch (transaction.type) {
@@ -83,7 +84,7 @@ const TransactionItem: React.FC<{ transaction: Transaction, currency: 'EUR' | 'U
   );
 };
 
-export const TransactionHistory: React.FC<{ transactions: Transaction[], currency: 'EUR' | 'USD', exchangeRate: number }> = ({ transactions, currency, exchangeRate }) => {
+export const TransactionHistory: React.FC<{ transactions: Transaction[] }> = ({ transactions }) => {
   const sortedTransactions = [...transactions].sort((a, b) => b.date.getTime() - a.date.getTime());
   return (
     <div className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm h-full">
@@ -95,7 +96,7 @@ export const TransactionHistory: React.FC<{ transactions: Transaction[], currenc
         </div>
       ) : (
         <ul className="divide-y divide-slate-700 max-h-[60vh] overflow-y-auto pr-2">
-          {sortedTransactions.map(tx => <TransactionItem key={tx.id} transaction={tx} currency={currency} exchangeRate={exchangeRate} />)}
+          {sortedTransactions.map(tx => <TransactionItem key={tx.id} transaction={tx} />)}
         </ul>
       )}
     </div>

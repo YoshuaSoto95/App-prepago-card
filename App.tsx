@@ -41,6 +41,7 @@ function App() {
       transactions: [],
       contacts: [],
       notifications: [],
+      cardStyle: 'default', // Asignar estilo por defecto
     };
 
     setUsers(prev => [...prev, newUser]);
@@ -83,7 +84,7 @@ function App() {
     
     const newNotification: Notification = {
         id: Date.now() + 2,
-        message: `Has recibido ${amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} de ${sender.name}.`,
+        message: `Has recibido ${amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} de ${sender.name}.`,
         date: new Date(),
         read: false,
     };

@@ -36,4 +36,5 @@ export interface User {
   transactions: Transaction[];
   contacts: Contact[];
   notifications: Notification[];
+  cardStyle: string; // Nueva propiedad para el estilo de la tarjeta
 }
